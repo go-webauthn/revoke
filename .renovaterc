@@ -1,0 +1,35 @@
+{
+  "constraints": {
+    "go": "1.18"
+  },
+  "extends": [
+    "config:base",
+    ":semanticCommitTypeAll(build)",
+    ":separatePatchReleases"
+  ],
+  "ignorePresets": [
+    ":combinePatchMinorReleases",
+    ":prHourlyLimit2",
+    ":semanticPrefixFixDepsChoreOthers"
+  ],
+  "enabledManagers": [
+    "gomod"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "packageRules": [
+    {
+      "datasources": [
+        "go"
+      ],
+      "addLabels": [
+        "go"
+      ]
+    }
+  ],
+  "postUpdateOptions": [
+      "gomodTidy",
+      "gomodNoMassage"
+  ]
+}
